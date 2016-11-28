@@ -34,7 +34,7 @@ public class WechatController {
 
 	@RequestMapping(method = RequestMethod.GET, produces = "text/plain;charset=utf-8")
 	public @ResponseBody String authGet(
-			@RequestParam(name = "signature", required = false) String signature,
+			@RequestParam(name = "msg_signature", required = false) String signature,
 			@RequestParam(name = "timestamp", required = false) String timestamp,
 			@RequestParam(name = "nonce", required = false) String nonce,
 			@RequestParam(name = "echostr", required = false) String echostr) {
