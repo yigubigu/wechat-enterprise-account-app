@@ -7,6 +7,8 @@ import me.chanjar.weixin.cp.bean.WxCpXmlMessage;
 import me.chanjar.weixin.cp.bean.WxCpXmlOutMessage;
 
 
+import me.chanjar.weixin.cp.util.crypto.WxCpCryptUtil;
+
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +49,12 @@ public class WechatController {
 		}
 
 		if (this.wxService.checkSignature(signature, timestamp, nonce, echostr)) {
-			return echostr;
+			
+			WxCpCryptUtil cryptUtil = new WxCpCryptUtil(this.wxCpConfigStorage);
+		      String plainText = cryptUtil.decrypt(echostr);
+		      // 说明是一个仅仅用来验证的请求，回显echostr
+		      
+			return plainText;
 		}
 
 		return "非法请求";
