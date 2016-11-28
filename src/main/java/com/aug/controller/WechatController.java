@@ -52,6 +52,7 @@ public class WechatController {
 			
 			WxCpCryptUtil cryptUtil = new WxCpCryptUtil(this.wxCpConfigStorage);
 		      String plainText = cryptUtil.decrypt(echostr);
+		      logger.debug("\n echostr" + plainText);
 		      // 说明是一个仅仅用来验证的请求，回显echostr
 		      
 			return plainText;
