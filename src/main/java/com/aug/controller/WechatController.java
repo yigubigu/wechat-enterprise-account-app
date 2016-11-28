@@ -64,7 +64,7 @@ public class WechatController {
 	@RequestMapping(method = RequestMethod.POST, produces = "application/xml; charset=UTF-8")
 	public @ResponseBody String post(
 			@RequestBody String requestBody,
-			@RequestParam("signature") String signature,
+			@RequestParam("msg_signature") String signature,
 			@RequestParam("timestamp") String timestamp,
 			@RequestParam("nonce") String nonce,
 			@RequestParam(name = "encrypt_type", required = false) String encType,
