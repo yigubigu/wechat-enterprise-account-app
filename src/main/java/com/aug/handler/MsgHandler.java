@@ -21,9 +21,11 @@ public class MsgHandler extends AbstractHandler  {
 	            Map<String, Object> context, WxCpService weixinService,
 	            WxSessionManager sessionManager) {
 
-	        String msg = String.format("type:%s, event:%s, key:%s",
+		 this.logger.debug("MsgHandler.handle");
+	        String msg = String.format("type:%s, event:%s, key:%s, content:%s",
 	            wxMessage.getMsgType(), wxMessage.getEvent(),
-	            wxMessage.getEventKey());
+	            wxMessage.getEventKey(), wxMessage.getContent());
+	        
 	        if (WxConsts.BUTTON_VIEW.equals(wxMessage.getEvent())) {
 	            return null;
 	        }
