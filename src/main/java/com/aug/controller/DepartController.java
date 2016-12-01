@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("weichat/depart")
+@RequestMapping("wechat/departs")
 public class DepartController {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
