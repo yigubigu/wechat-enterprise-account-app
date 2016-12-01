@@ -53,9 +53,8 @@ public class WechatCpConfiguration {
     public WxCpMessageRouter router(WxCpService wxCpService) {
         final WxCpMessageRouter newRouter = new WxCpMessageRouter(wxCpService);
 
-        // 记录所有事件的日志 （异步执行）
+        // 记录所有事件的日志 （异步执行） 
         newRouter.rule().handler(this.logHandler).next();
-
 
         // 默认
         newRouter.rule().async(false).handler(this.msgHandler).end();
